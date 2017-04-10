@@ -1,0 +1,62 @@
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.min.js"></script>
+  <script>
+    requirejs(['main']);
+  </script>
+</head>
+<body>
+  <div>The example shows two objects (person A and person B). You can add some info for person A and then copy it to person B with Deep Copy button.<br>
+    After that you can edit person A info and hit second button that will show paerson A and person B after the update.<br/>
+    Person B should not be changed by the changes made to person A
+  </div>
+  <div id="personA">
+    <h3>Person A</h3>
+    <div>
+      <span>Name</span>
+      <input type="text" id="personName" />
+    </div>
+    <div style="margin-top: 5px;">
+      <span>Age</span>
+      <input type="text" id="personAge"  />
+    </div>
+  </div>
+  <div style="padding-top: 20px;">
+    <button id="makeCopy">Deep Copy</button>
+    <button id="showPeople" >Show Person B after Person A change</button>
+  </div>
+  <div id="personB">
+    <h3>Person B</h3>
+    <div>
+      <span>Name</span>
+      <span id="personBName"></span>
+    </div>
+    <div>
+      <span>Age</span>
+      <span id="personBAge"></span>
+    </div>
+  </div>
+  <div style="width: 500px; float: left;">
+    <h3>Person A after update</h3>
+    <div>
+      <span>Name</span>
+      <span id="showAName"></span>
+    </div>
+    <div>
+      <span>Age</span>
+      <span id="showAAge"></span>
+    </div>
+  </div>
+  <div style="width: 500px; float: left;">
+    <h3>Person B after A update</h3>
+    <div>
+      <span>Name</span>
+      <span id="showBName"></span>
+    </div>
+    <div>
+      <span>Age</span>
+      <span id="showBAge"></span>
+    </div>
+  </div>
+</body>
+</html>

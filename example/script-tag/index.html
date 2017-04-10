@@ -1,0 +1,93 @@
+<html>
+<head>
+  <script src="clone.js" type="text/javascript"></script>
+</head>
+<body>
+  <div>The example shows two objects (person A and person B). You can add some info for person A and then copy it to person B with Deep Copy button.<br>
+    After that you can edit person A info and hit second button that will show paerson A and person B after the update.<br/>
+    Person B should not be changed by the changes made to person A
+  </div>
+
+  <div id="personA">
+    <h3>Person A</h3>
+    <div>
+      <span>Name</span>
+      <input type="text" id="personName" onchange="updatePersonA()" />
+    </div>
+    <div style="margin-top: 5px;">
+      <span>Age</span>
+      <input type="text" id="personAge" onchange="updatePersonA()" />
+    </div>
+  </div>
+  <div style="padding-top: 20px;">
+    <button onclick="copy()">Deep Copy</button>
+    <button onclick="show()">Show Person B after Person A change</button>
+  </div>
+  <div id="personB">
+    <h3>Person B</h3>
+    <div>
+      <span>Name</span>
+      <span id="personBName"></span>
+    </div>
+    <div>
+      <span>Age</span>
+      <span id="personBAge"></span>
+    </div>
+  </div>
+  <div style="width: 500px; float: left;">
+    <h3>Person A after update</h3>
+    <div>
+      <span>Name</span>
+      <span id="showAName"></span>
+    </div>
+    <div>
+      <span>Age</span>
+      <span id="showAAge"></span>
+    </div>
+  </div>
+  <div style="width: 500px; float: left;">
+    <h3>Person B after A update</h3>
+    <div>
+      <span>Name</span>
+      <span id="showBName"></span>
+    </div>
+    <div>
+      <span>Age</span>
+      <span id="showBAge"></span>
+    </div>
+  </div>
+  <script>
+      var person = {
+        name: 'John Doe',
+        age: '35'
+      }
+
+      var personB;
+
+      document.getElementById('personName').value = person.name;
+      document.getElementById('personAge').value = person.age;
+
+      function copy(){
+        if (window.clone) {
+          personB = clone(person);
+
+          document.getElementById('personBName').textContent = personB.name;
+          document.getElementById('personBAge').textContent = personB.age;
+        }
+      }
+
+      function show(){
+        document.getElementById('showAName').textContent = person.name;
+        document.getElementById('showAAge').textContent = person.age;
+
+        document.getElementById('showBName').textContent = personB.name;
+        document.getElementById('showBAge').textContent = personB.age;
+      }
+
+      function updatePersonA(){
+        person.name = document.getElementById('personName').value;
+        person.age = document.getElementById('personAge').value;
+      }
+  </script>
+</body>
+</html>

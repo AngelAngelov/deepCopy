@@ -1,4 +1,23 @@
-clone = function (obj) {
+/* clone.js v1.0.1
+ * https://github.com/AngelAngelov/deepCopy
+ * Small function to deep copy an object in pure javascript
+ */
+
+ (function (factory) {
+   if (typeof define === 'function' && define.amd) {
+       // AMD. Register as an anonymous module.
+       define([], factory);
+   } else if (typeof exports === 'object') {
+       // Node/CommonJS
+       factory(module['exports'] || exports); // module.exports is for Node.js
+   } else {
+       // Browser globals
+       factory(window);
+     }
+}(function (exports) {
+
+  var deepCopy = typeof exports !== 'undefined' ? exports : {};
+  var clone = function(obj){
     var clonedObject;
 
     //Handle null, undefined or primitive types
@@ -43,4 +62,8 @@ clone = function (obj) {
 
     //If you hit this code something in VERY Wrong :)
     throw new Error('Object not cloned');
-}
+  }
+
+  deepCopy.clone = clone;
+  return deepCopy;
+}));
