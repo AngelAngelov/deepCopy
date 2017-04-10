@@ -13,9 +13,10 @@ var personB = clone(objectA);
 
 console.log(personB.name, personB.age);
 
-##RequireJs
+## RequireJs
 
 define(['./clone'], function(deepCopy){
+
 	// Do your code ...
 
 	var personA = { 
@@ -26,11 +27,13 @@ define(['./clone'], function(deepCopy){
 	var personB = deepCopy.clone(personA);
 
 	// Do your code ...
+	
 })
 
-##CommonJS
+## CommonJS
 
 module.import('./clone').then(function (deepCopy) {
+
   // Do your code ...
 
   var personA = {
@@ -41,4 +44,5 @@ module.import('./clone').then(function (deepCopy) {
   var personB = deepCopy.clone(personA);
 
   // Do your code ...
+  
 }
