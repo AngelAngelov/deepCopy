@@ -4,41 +4,55 @@ Deep copy of on object in pure javascript
 ## Sample
 # Using <script> tag 
 
-var personA = {
-  name: 'John',
-  age: 32
+{
+
+	var personA = {
+	  name: 'John',
+	  age: 32
+	}
+
+	var personB = clone(objectA);
+
+	console.log(personB.name, personB.age);
+
 }
 
-var personB = clone(objectA);
+## RequireJs
+{
 
-console.log(personB.name, personB.age);
+	define(['./clone'], function(deepCopy){
 
-##RequireJs
+		// Do your code ...
 
-define(['./clone'], function(deepCopy){
-	// Do your code ...
+		var personA = { 
+			name: 'John Doe', 
+			age: 35
+		};
 
-	var personA = { 
-		name: 'John Doe', 
-		age: 35
-	};
+		var personB = deepCopy.clone(personA);
 
-	var personB = deepCopy.clone(personA);
+		// Do your code ...
 
-	// Do your code ...
-})
+	})
+	
+}
 
-##CommonJS
+## CommonJS
+{
 
-module.import('./clone').then(function (deepCopy) {
-  // Do your code ...
+	module.import('./clone').then(function (deepCopy) {
 
-  var personA = {
-    name: 'John Doe',
-    age: '35'
-  }
+		// Do your code ...
 
-  var personB = deepCopy.clone(personA);
+		var personA = { 
+			name: 'John Doe', 
+			age: 35
+		};
 
-  // Do your code ...
+		var personB = deepCopy.clone(personA);
+
+		// Do your code ...
+
+	})
+	
 }
