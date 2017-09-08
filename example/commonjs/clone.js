@@ -47,13 +47,13 @@
 
     //Handle RegExp
     if(obj instanceof RegExp) {
-    	clonedObject=RegExp(obj.source,obj.flags);
+        clonedObject=RegExp(obj.source,obj.flags);
         return clonedObject;
     }
 
     //Handle Object
     if(obj instanceof Object) {
-        clonedObject = {};
+        clonedObject = new obj.constructor();
 
         //iterate object properties
         for(var attr in obj){

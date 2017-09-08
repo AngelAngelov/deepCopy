@@ -53,7 +53,7 @@
 
     //Handle Object
     if(obj instanceof Object) {
-        clonedObject = {};
+        clonedObject = new obj.constructor();
 
         //iterate object properties
         for(var attr in obj){
