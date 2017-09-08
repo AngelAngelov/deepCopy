@@ -45,6 +45,12 @@
         return clonedObject;
     }
 
+    //Handle RegExp
+    if(obj instanceof RegExp) {
+    	clonedObject=RegExp(obj.source,obj.flags);
+        return clonedObject;
+    }
+
     //Handle Object
     if(obj instanceof Object) {
         clonedObject = {};
