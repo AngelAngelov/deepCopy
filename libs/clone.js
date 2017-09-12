@@ -39,9 +39,7 @@
 
     //Handle Date
     if(obj instanceof Date) {
-        clonedObject = new Date();
-        clonedObject.setDate(obj.getDate());
-
+        clonedObject = new Date(obj.valueOf());
         return clonedObject;
     }
 
